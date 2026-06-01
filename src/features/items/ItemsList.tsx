@@ -1,31 +1,21 @@
-import { useItems } from "../../hooks/useItems";
+import type { ItemDTO } from "../../api/types";
+import { ItemCard } from "./ItemCard";
 
-export default function ItemsList() {
-  const { data, isLoading, isError } = useItems();
+type Props = { items: ItemDTO[] };
 
-  if (isLoading) {
-    return <div className="opacity-60">Loading items...</div>;
-  }
-
-  if (isError) {
-    return <div className="text-red-500">Failed to load items</div>;
+export function ItemsList({ items }: Props) {
+  if (items.length === 0) {
+    return (
+      <p className="py-12 text-center text-sm opacity-60">
+        No items found.
+      </p>
+    );
   }
 
   return (
-    <div className="mt-6 space-y-4">
-      {data?.results.map((item) => (
-        <div key={item.id} className="rounded-lg border border-zinc-800 p-4">
-          <h3 className="font-semibold">{item.title}</h3>
-          <p className="text-sm opacity-70">{item.city}</p>
-
-          <p className="mt-1 text-sm">
-            ${item.priceMin} – ${item.priceMax}
-          </p>
-
-          <p className="mt-2 text-xs opacity-60">
-            Tags: {item.tags.join(", ")}
-          </p>
-        </div>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((it) => (
+        <ItemCard key={it.id} item={it} />
       ))}
     </div>
   );
