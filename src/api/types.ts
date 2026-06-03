@@ -101,3 +101,20 @@ export type UpdateItemRequestDTO = {
   priceMax?: number;
   tags?: string[];
 };
+
+export type StrategyMetricsValuesDTO = {
+  "precision@k": number;
+  "recall@k": number;
+  "ndcg@k": number;
+};
+
+export type StrategyMetricsDTO = {
+  strategy: string;
+  k: number;
+  usersEvaluated: number;
+  metrics: StrategyMetricsValuesDTO;
+};
+
+export type AllStrategyMetricsResponseDTO = {
+  [strategy: string]: StrategyMetricsDTO;
+};

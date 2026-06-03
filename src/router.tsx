@@ -5,6 +5,7 @@ import { UsersPage } from "./features/users/UsersPage";
 import { UserProfilePage } from "./features/users/UserProfilePage";
 import { RecommendationsPage } from "./features/recommendations/RecommendationsPage";
 import { ItemDetailPage } from "./features/items/ItemDetailPage";
+import { MetricsPage } from "./features/metrics/MetricsPage";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ export const router = createBrowserRouter([
     element: (
       <AppLayout>
         <RecommendationsPage />
+      </AppLayout>
+    ),
+  },
+  {
+    path: "/metrics",
+    element: (
+      <AppLayout>
+        <MetricsPage />
       </AppLayout>
     ),
   },

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useActiveUser } from "@/features/users/UserContext";
-import { User, LogOut, Compass, History, Users, Sparkles } from "lucide-react";
+import { User, LogOut, Compass, History, Users, Sparkles, BarChart3 } from "lucide-react";
 
 export default function Navbar() {
   const { activeUserId, activeUsername, clearActiveUser } = useActiveUser();
@@ -36,6 +36,10 @@ export default function Navbar() {
               <NavLink to="/recommendations" className={linkClass}>
                 <Sparkles className="h-4 w-4" />
                 Recommendations
+              </NavLink>
+              <NavLink to="/metrics" className={linkClass}>
+                <BarChart3 className="h-4 w-4" />
+                Metrics
               </NavLink>
               {activeUserId && (
                 <NavLink to={`/users/${activeUserId}`} className={linkClass}>
