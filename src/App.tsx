@@ -1,10 +1,11 @@
-import AppLayout from "./components/layout/AppLayout";
-import { ItemsPage } from "./features/items/ItemsPage";
+import { RouterProvider } from "react-router-dom";
+import { UserProvider } from "@/features/users/UserContext";
+import { router } from "./router";
 
 export default function App() {
   return (
-    <AppLayout>
-      <ItemsPage />
-    </AppLayout>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   );
 }

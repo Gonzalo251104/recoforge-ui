@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Navbar from "./Navbar";
 
 type Props = {
   children: ReactNode;
@@ -6,14 +7,9 @@ type Props = {
 
 export default function AppLayout({ children }: Props) {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="border-b border-zinc-800">
-        <div className="mx-auto max-w-5xl px-4 py-4">
-          <div className="text-sm font-semibold tracking-wide">Recoforge</div>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-teal-500 selection:text-zinc-900">
+      <Navbar />
+      <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
     </div>
   );
 }
